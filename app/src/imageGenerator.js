@@ -4,6 +4,7 @@ const path = require("path");
 
 const imagesDir = path.resolve(__dirname, "static", "css", "images", "scenes");
 async function createImage(prompt, number) {
+  fs.mkdirSync(imagesDir, { recursive: true });
   const url = `https://image.pollinations.ai/prompt/${prompt}?width=2048&height=1152&model=flux&nologo=true&private=true`
   const response = await axios({
     url,
